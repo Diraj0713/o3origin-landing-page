@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O3 Origin — AI-Powered Learning Ecosystem</title>
+    <meta name="description" content="Origin doesn't just teach—it understands, adapts, and ensures mastery. Your personal AI teacher available 24×7.">
+    <link rel="icon" type="image/png" href="origin-logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+</head>
+<body>
+    <!-- Audio Elements -->
+    <audio id="hoverSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2teleR0NZKrk7rNsGgxJkNTsvXwkDk+L0O+0dSQPUIjN7LRyJQ1MiMzrsnMiDUyGzOuwdyQMTIfL6q12JgxMhsnprnUjDEuGyOiudiMMS4bH6Kx1IgxKhsbprHUjDEuGxOmsdSIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMhDEuGwuWpcyIMS4bD6Kt0IgxKhsLmqXMh" type="audio/wav">
+    </audio>
+    <audio id="clickSound" preload="auto">
+        <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAIlYAAESsAAACABAAZGF0YQAAAAA=" type="audio/wav">
+    </audio>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">O3 Origin</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#difference">How We're Different</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#waitlist" class="nav-cta">Join Waitlist</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge" data-sound>
+                <span class="badge-pulse"></span>
+                <span>Early Access Opening Soon</span>
+            </div>
+            <h1 class="hero-title">
+                Your Personal<br>
+                <span class="gradient-text">AI Teacher</span>
+            </h1>
+            <p class="hero-subtitle">
+                Origin doesn't just teach—it understands, adapts, and ensures mastery. 
+                Test-first learning that diagnoses your weaknesses and fixes them like a real teacher.
+            </p>
+            <div class="hero-cta">
+                <a href="#waitlist" class="btn-primary" data-sound>
+                    Join the Waitlist
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#difference" class="btn-secondary" data-sound>See How We're Different</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We're Different Section -->
+    <section class="difference" id="difference">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">The Origin Difference</span>
+                <h2 class="section-title">How We're <span class="gradient-text">Different</span></h2>
+            </div>
+            <div class="comparison-grid">
+                <div class="comparison-card traditional" data-sound>
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </div>
+                    <h3>Traditional Platforms</h3>
+                    <ul class="feature-list">
+                        <li><span class="cross">×</span> Show wrong answers only</li>
+                        <li><span class="cross">×</span> End the experience there</li>
+                        <li><span class="cross">×</span> No personalized guidance</li>
+                        <li><span class="cross">×</span> Generic test reports</li>
+                    </ul>
+                </div>
+                <div class="comparison-card origin" data-sound>
+                    <div class="card-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                    <h3>Origin Platform</h3>
+                    <ul class="feature-list">
+                        <li><span class="check">✓</span> AI identifies why you're wrong</li>
+                        <li><span class="check">✓</span> Explains concepts conversationally</li>
+                        <li><span class="check">✓</span> Generates personalized DPPs</li>
+                        <li><span class="check">✓</span> Retests until concepts are fixed</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What You Get</span>
+                <h2 class="section-title">Powered by <span class="gradient-text">Intelligence</span></h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-sound>
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/>
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            <line x1="12" y1="19" x2="12" y2="23"/>
+                            <line x1="8" y1="23" x2="16" y2="23"/>
+                        </svg>
+                    </div>
+                    <h3>AI Mentor</h3>
+                    <p>Personal AI that explains, guides, and fixes your conceptual gaps in your favorite teacher's voice.</p>
+                </div>
+                <div class="feature-card" data-sound>
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="6"/>
+                            <circle cx="12" cy="12" r="2"/>
+                        </svg>
+                    </div>
+                    <h3>Smart DPPs</h3>
+                    <p>Personalized practice problems generated from your weak areas, not generic question banks.</p>
+                </div>
+                <div class="feature-card" data-sound>
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                        </svg>
+                    </div>
+                    <h3>24/7 Doubt Solving</h3>
+                    <p>Get answers anytime. Interactive explanations that adapt to your understanding level.</p>
+                </div>
+                <div class="feature-card" data-sound>
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                        </svg>
+                    </div>
+                    <h3>Streaks & Focus</h3>
+                    <p>Build momentum with daily streaks and focused study sessions to keep you motivated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision" id="vision">
+        <div class="container">
+            <div class="vision-content">
+                <span class="section-tag">Our Vision</span>
+                <h2 class="section-title">Scaling Teacher Intelligence,<br>Not Just Content</h2>
+                <p class="vision-text">
+                    Most platforms are content-first: videos, notes, generic AI answers. Origin is <strong>test-first</strong>. 
+                    We analyze how you perform, identify the exact root cause of mistakes, and build your personalized learning profile.
+                </p>
+                <p class="vision-text">
+                    Our AI mimics your favorite teacher's style, explains interactively, and continuously retests until you achieve mastery. 
+                    Every student gets a personalized AI teacher available 24×7.
+                </p>
+                <div class="vision-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">Test-First</span>
+                        <span class="stat-label">Approach</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">AI-Powered</span>
+                        <span class="stat-label">Diagnosis</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Availability</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section class="waitlist" id="waitlist">
+        <div class="container">
+            <div class="waitlist-wrapper">
+                <div class="waitlist-header">
+                    <span class="section-tag">Join the Movement</span>
+                    <h2 class="section-title">Be Part of the <span class="gradient-text">Revolution</span></h2>
+                    <p class="section-subtitle">Help us build the future of AI-powered education</p>
+                </div>
+                
+                <form class="waitlist-form" id="waitlistForm">
+                    <div class="form-section">
+                        <h3 class="form-section-title">Your Details</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="fullName">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" placeholder="you@email.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+91" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="class">Class *</label>
+                                <select id="class" name="class" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="11">Class 11</option>
+                                    <option value="12">Class 12</option>
+                                    <option value="dropper-1">1st Time Dropper</option>
+                                    <option value="dropper-2">2nd Time Dropper</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exam">Preparing For *</label>
+                                <select id="exam" name="exam" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="JEE">JEE</option>
+                                    <option value="NEET">NEET</option>
+                                    <option value="Olympiad">Olympiad</option>
+                                    <option value="WBJEE">WBJEE</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="contactPreference">Contact Preference *</label>
+                                <select id="contactPreference" name="contactPreference" required>
+                                    <option value="" disabled selected>Select</option>
+                                    <option value="call">Call me</option>
+                                    <option value="message">Message me</option>
+                                    <option value="email">Email me</option>
+                                    <option value="updates">Updates only</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3 class="form-section-title">Your Input</h3>
+                        <div class="form-group full-width">
+                            <label for="expectation">What do you expect from Origin? *</label>
+                            <textarea id="expectation" name="expectation" rows="3" placeholder="Tell us what features, support, or experience you're looking for..." required></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="revolutionIdea">How can Origin revolutionize AI-enabled EdTech? *</label>
+                            <textarea id="revolutionIdea" name="revolutionIdea" rows="3" placeholder="Share your ideas on how we can transform education..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">How much would you pay per subject/month? (₹) *</label>
+                            <input type="number" id="price" name="price" placeholder="e.g., 500" min="0" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary btn-large" id="submitBtn" data-sound>
+                        <span class="btn-text">Join Origin Waitlist</span>
+                        <span class="btn-loader hidden"></span>
+                    </button>
+                </form>
+
+                <!-- Updated Success Message -->
+                <div class="success-message hidden" id="successMessage">
+                    <div class="success-content">
+                        <div class="success-icon">🎉</div>
+                        <h2 class="success-title">Welcome to O3 Origin!</h2>
+                        <div class="success-text">
+                            <p>✅ <strong>You're officially on the waitlist!</strong></p>
+                            <p>📧 We'll send a confirmation to your email</p>
+                            <p>🚀 <strong>What's next?</strong></p>
+                            <p>1. We'll notify you when O3 Origin launches</p>
+                            <p>2. You'll get early access & special discounts</p>
+                            <p>3. Keep an eye on your email for updates</p>
+                            <br>
+                            <p>📞 Questions? Call us: <strong>+91 9366738658</strong></p>
+                        </div>
+                        <div class="success-actions">
+                            <button class="btn btn-secondary whatsapp-share">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.173.198-.297.297-.495.099-.198.05-.371-.025-.521-.075-.149-.67-1.612-.917-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.76.982.998-3.675-.236-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.9 6.994c-.004 5.45-4.438 9.88-9.888 9.88zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.333.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.304-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.333 11.893-11.893 0-3.18-1.24-6.162-3.495-8.411z" fill="currentColor"/>
+                                </svg>
+                                Share with Friends
+                            </button>
+                        </div>
+                        <button class="btn btn-primary" onclick="location.reload()">Add Another Student</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <a href="tel:+919366738658" class="contact-card" data-sound>
+                    <div class="contact-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                    </div>
+                    <span>+91 9366738658</span>
+                </a>
+                <a href="mailto:2003origin@gmail.com" class="contact-card" data-sound>
+                    <div class="contact-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                    </div>
+                    <span>2003origin@gmail.com</span>
+                </a>
+                <a href="https://www.instagram.com/o3.origin/" target="_blank" class="contact-card" data-sound>
+                    <div class="contact-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                        </svg>
+                    </div>
+                    <span>@o3.origin</span>
+                </a>
+                <a href="https://www.linkedin.com/in/o3-origin-ba73233a8/" target="_blank" class="contact-card" data-sound>
+                    <div class="contact-icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                            <rect x="2" y="9" width="4" height="12"/>
+                            <circle cx="4" cy="4" r="2"/>
+                        </svg>
+                    </div>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo-text">O3 Origin</span>
+                    <p class="footer-tagline">AI-Powered Learning Ecosystem</p>
+                </div>
+                <p class="footer-copy">&copy; 2026 O3 Origin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /**
+         * O3 Origin — Landing Page JavaScript
+         * With sound effects, animations, and Firebase integration
+         */
+
+        // ========================================
+        // Firebase Configuration
+        // ========================================
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAB-Bi4ITOc6NZ4Aw7Kutq_xUlNl7OtlU0",
+            authDomain: "origin-9f8bf.firebaseapp.com",
+            projectId: "origin-9f8bf",
+            storageBucket: "origin-9f8bf.firebasestorage.app",
+            messagingSenderId: "1078990885607",
+            appId: "1:1078990885607:web:09a6b0d314bb9279aec842"
+        };
+
+        let db = null;
+
+        try {
+            // Initialize Firebase with compat mode (since you're using compat SDK)
+            const app = firebase.initializeApp(firebaseConfig);
+            db = firebase.firestore();
+            console.log("✅ Firebase connected");
+        } catch (error) {
+            console.error("❌ Firebase error:", error);
+        }
+
+        // ========================================
+        // Sound Effects
+        // ========================================
+
+        const hoverSound = document.getElementById('hoverSound');
+        const clickSound = document.getElementById('clickSound');
+
+        // Create better hover sound using Web Audio API
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playHoverSound() {
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+            
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.05);
+            
+            gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.05);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.05);
+        }
+
+        function playClickSound() {
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+            
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
+            oscillator.frequency.exponentialRampToValueAtTime(300, audioContext.currentTime + 0.1);
+            
+            gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.1);
+        }
+
+        function playSuccessSound() {
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+            
+            const notes = [523.25, 659.25, 783.99, 1046.50]; // C major chord
+            
+            notes.forEach((freq, i) => {
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.setValueAtTime(freq, audioContext.currentTime + i * 0.1);
+                
+                gainNode.gain.setValueAtTime(0, audioContext.currentTime + i * 0.1);
+                gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + i * 0.1 + 0.05);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + i * 0.1 + 0.3);
+                
+                oscillator.start(audioContext.currentTime + i * 0.1);
+                oscillator.stop(audioContext.currentTime + i * 0.1 + 0.3);
+            });
+        }
+
+        // ========================================
+        // DOM Elements
+        // ========================================
+
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        const waitlistForm = document.getElementById('waitlistForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnLoader = submitBtn.querySelector('.btn-loader');
+        const successMessage = document.getElementById('successMessage');
+
+        // ========================================
+        // Navigation
+        // ========================================
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(10, 14, 39, 0.95)';
+                navbar.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
+            } else {
+                navbar.style.background = 'rgba(10, 14, 39, 0.8)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+
+        // Mobile menu
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                playClickSound();
+            });
+        }
+
+        // Close menu on link click
+        if (navLinks) {
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.classList.remove('active');
+                });
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                playClickSound();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = target.offsetTop - 80;
+                    window.scrollTo({ top: offset, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ========================================
+        // Sound Effects on Interactive Elements
+        // ========================================
+
+        document.querySelectorAll('[data-sound]').forEach(el => {
+            el.addEventListener('mouseenter', playHoverSound);
+            el.addEventListener('click', playClickSound);
+        });
+
+        // ========================================
+        // Intersection Observer for Animations
+        // ========================================
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    fadeInObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for fade-in
+        document.querySelectorAll('.comparison-card, .feature-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            fadeInObserver.observe(el);
+        });
+
+        // ========================================
+        // Form Validation & Submission
+        // ========================================
+
+        function validateForm(data) {
+            const errors = [];
+            
+            if (!data.fullName || data.fullName.trim().length < 2) {
+                errors.push({ field: 'fullName', message: 'Please enter your full name' });
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!data.email || !emailRegex.test(data.email)) {
+                errors.push({ field: 'email', message: 'Please enter a valid email' });
+            }
+            
+            const phoneRegex = /^[\+]?[0-9\s\-\.]{10,15}$/;
+            if (!data.phone || !phoneRegex.test(data.phone.replace(/\s/g, ''))) {
+                errors.push({ field: 'phone', message: 'Please enter a valid phone number' });
+            }
+            
+            if (!data.class) {
+                errors.push({ field: 'class', message: 'Please select your class' });
+            }
+            
+            if (!data.exam) {
+                errors.push({ field: 'exam', message: 'Please select an exam' });
+            }
+            
+            if (!data.contactPreference) {
+                errors.push({ field: 'contactPreference', message: 'Please select contact preference' });
+            }
+            
+            if (!data.expectation || data.expectation.trim().length < 10) {
+                errors.push({ field: 'expectation', message: 'Please share your expectations (min 10 chars)' });
+            }
+            
+            if (!data.revolutionIdea || data.revolutionIdea.trim().length < 10) {
+                errors.push({ field: 'revolutionIdea', message: 'Please share your ideas (min 10 chars)' });
+            }
+            
+            if (!data.price || data.price <= 0) {
+                errors.push({ field: 'price', message: 'Please enter a valid amount' });
+            }
+            
+            return errors;
+        }
+
+        function showErrors(errors) {
+            document.querySelectorAll('.error-message').forEach(el => el.remove());
+            document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
+            
+            errors.forEach(error => {
+                const field = document.getElementById(error.field);
+                if (field) {
+                    field.classList.add('error');
+                    const msg = document.createElement('span');
+                    msg.className = 'error-message';
+                    msg.textContent = error.message;
+                    field.parentNode.appendChild(msg);
+                }
+            });
+            
+            if (errors.length > 0) {
+                document.getElementById(errors[0].field).scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        }
+
+        // Clear errors on input
+        document.querySelectorAll('.waitlist-form input, .waitlist-form select, .waitlist-form textarea').forEach(field => {
+            field.addEventListener('input', function() {
+                this.classList.remove('error');
+                const msg = this.parentNode.querySelector('.error-message');
+                if (msg) msg.remove();
+            });
+        });
+
+        function setLoading(loading) {
+            submitBtn.disabled = loading;
+            btnText.classList.toggle('hidden', loading);
+            btnLoader.classList.toggle('hidden', !loading);
+        }
+
+        async function storeData(data) {
+            const payload = {
+                name: data.fullName,
+                email: data.email,
+                phone: data.phone,
+                class: data.class,
+                exam: data.exam,
+                contactPreference: data.contactPreference,
+                expectation: data.expectation,
+                revolutionIdea: data.revolutionIdea,
+                pricePerSubject: parseFloat(data.price),
+                timestamp: new Date().toISOString(),
+                source: 'o3origin.com'
+            };
+            
+            if (db) {
+                try {
+                    const docRef = await db.collection("origin_waitlist").add({
+                        ...payload,
+                        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+                    console.log('✅ Data stored in Firebase with ID:', docRef.id);
+                    return { success: true, id: docRef.id, data: payload };
+                } catch (e) {
+                    console.error('❌ Firebase error:', e);
+                    throw e;
+                }
+            }
+            
+            // Fallback to localStorage if Firebase fails
+            const submissions = JSON.parse(localStorage.getItem('origin_waitlist') || '[]');
+            submissions.push(payload);
+            localStorage.setItem('origin_waitlist', JSON.stringify(submissions));
+            console.log('✅ Data stored in localStorage (fallback)');
+            return { success: true, id: 'local-' + Date.now(), data: payload };
+        }
+
+        // ========================================
+        // Show Success Message with User Details
+        // ========================================
+
+        function showSuccessMessage(userData) {
+            if (!successMessage) return;
+            
+            // Update success message with user's name
+            const userName = userData.name.split(' ')[0]; // Get first name
+            const successTitle = successMessage.querySelector('.success-title');
+            const successText = successMessage.querySelector('.success-text');
+            
+            if (successTitle) {
+                successTitle.innerHTML = `🎉 Welcome to O3 Origin, ${userName}!`;
+            }
+            
+            if (successText) {
+                successText.innerHTML = `
+                    <p>✅ <strong>You're officially on the waitlist!</strong></p>
+                    <p>📧 We'll send a confirmation to: <strong>${userData.email}</strong></p>
+                    <p>📱 We'll contact you on: <strong>${userData.phone}</strong></p>
+                    <p>🎯 Your selected exam: <strong>${userData.exam}</strong></p>
+                    <p>💰 Your suggested price: <strong>₹${userData.pricePerSubject}/subject</strong></p>
+                    <br>
+                    <p>🚀 <strong>What's next?</strong></p>
+                    <p>1. We'll notify you when O3 Origin launches</p>
+                    <p>2. You'll get early access & special discounts</p>
+                    <p>3. Keep an eye on your email for updates</p>
+                    <br>
+                    <p>📞 Questions? Call us: <strong>+91 9366738658</strong></p>
+                `;
+            }
+            
+            // Add WhatsApp sharing button functionality
+            const whatsappBtn = successMessage.querySelector('.whatsapp-share');
+            if (whatsappBtn) {
+                whatsappBtn.onclick = function() {
+                    const message = `🎯 I just joined the O3 Origin waitlist! \nJoin me for AI-powered learning: ${window.location.href}`;
+                    window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
+                };
+            }
+            
+            // Show success message
+            waitlistForm.classList.add('hidden');
+            successMessage.classList.remove('hidden');
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Play success sound
+            playSuccessSound();
+        }
+
+        // Form submission
+        if (waitlistForm) {
+            waitlistForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                playClickSound();
+                
+                const data = {
+                    fullName: document.getElementById('fullName').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    phone: document.getElementById('phone').value.trim(),
+                    class: document.getElementById('class').value,
+                    exam: document.getElementById('exam').value,
+                    contactPreference: document.getElementById('contactPreference').value,
+                    expectation: document.getElementById('expectation').value.trim(),
+                    revolutionIdea: document.getElementById('revolutionIdea').value.trim(),
+                    price: document.getElementById('price').value
+                };
+                
+                const errors = validateForm(data);
+                if (errors.length > 0) {
+                    showErrors(errors);
+                    return;
+                }
+                
+                setLoading(true);
+                
+                try {
+                    const result = await storeData(data);
+                    if (result.success) {
+                        // Show personalized success message
+                        showSuccessMessage(result.data);
+                    } else {
+                        throw new Error('Failed to store data');
+                    }
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    alert('Something went wrong. Please try again or contact us directly at +91 9366738658.');
+                } finally {
+                    setLoading(false);
+                }
+            });
+        }
+
+        // ========================================
+        // Parallax Effect for Orbs
+        // ========================================
+
+        document.addEventListener('mousemove', (e) => {
+            const orbs = document.querySelectorAll('.gradient-orb');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            orbs.forEach((orb, index) => {
+                const speed = (index + 1) * 10;
+                const xOffset = (x - 0.5) * speed;
+                const yOffset = (y - 0.5) * speed;
+                orb.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+
+        // ========================================
+        // Test Firebase Connection on Load
+        // ========================================
+
+        window.addEventListener('load', () => {
+            if (db) {
+                console.log("🔍 Testing Firestore connection...");
+                console.log("✅ Firestore is ready");
+                
+                // Show connection status in console
+                console.log(`
+        %c🔥 FIREBASE STATUS
+        📊 Project: origin-9f8bf
+        ✅ Database: Connected
+        📁 Collection: origin_waitlist (will be auto-created)
+        🔑 API Key: Valid
+        🌐 Domain: origin-9f8bf.firebaseapp.com
+        `, 'color: #00ff88; font-family: monospace;');
+                
+            } else {
+                console.warn("⚠️ Firebase not connected - will use localStorage as fallback");
+            }
+        });
+
+        // ========================================
+        // Console Welcome
+        // ========================================
+
+        console.log(`
+        %c╔══════════════════════════════════════════════════════════╗
+        ║                                                          ║
+        ║   🚀 O3 Origin — AI-Powered Learning Ecosystem          ║
+        ║                                                          ║
+        ║   Your personal AI teacher available 24×7               ║
+        ║                                                          ║
+        ║   Contact: +91 9366738658                               ║
+        ║   Email: 2003origin@gmail.com                           ║
+        ║                                                          ║
+        ╚══════════════════════════════════════════════════════════╝
+        `, 'color: #00d4ff; font-family: monospace;');
+
+        // ========================================
+        // Emergency Test Function
+        // ========================================
+
+        // Add this to test Firebase from browser console
+        window.testFirebaseNow = async function() {
+            console.log("🧪 Running emergency Firebase test...");
+            
+            try {
+                const testData = {
+                    name: "Test Student",
+                    email: "test@example.com",
+                    phone: "+911234567890",
+                    class: "Class 12",
+                    exam: "JEE",
+                    contactPreference: "WhatsApp",
+                    expectation: "Testing Firebase connection",
+                    revolutionIdea: "Test idea for learning",
+                    pricePerSubject: 499,
+                    timestamp: new Date().toISOString(),
+                    source: 'o3origin.com',
+                    test: true
+                };
+                
+                if (!db) {
+                    throw new Error("Firebase not initialized");
+                }
+                
+                const docRef = await db.collection("origin_waitlist").add({
+                    ...testData,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                
+                console.log("🎉 SUCCESS! Document ID:", docRef.id);
+                console.log("📊 Check Firebase Console → Firestore → origin_waitlist");
+                alert("✅ Test successful! Check browser console for details.");
+                
+            } catch (error) {
+                console.error("❌ Test failed:", error);
+                alert("❌ Test failed. Check console for error details.");
+            }
+        };
+    </script>
+</body>
+</html>
