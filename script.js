@@ -28,7 +28,7 @@ let db = null;
 
 try {
     db = getFirestore(app);
-    console.log("✅ Firebase connected");
+    // console.log("✅ Firebase connected");
 } catch (error) {
     console.error("❌ Firebase error:", error);
 }
@@ -44,9 +44,8 @@ const clickSound = document.getElementById('clickSound');
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
 function playHoverSound() {
-    if (audioContext.state === 'suspended') {
-        audioContext.resume();
-    }
+    // Only play if context is running. Don't try to resume on hover (not allowed)
+    if (audioContext.state !== 'running') return;
 
     const oscillator = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
@@ -63,6 +62,13 @@ function playHoverSound() {
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.05);
 }
+
+// Initialize audio context on first user interaction
+document.addEventListener('click', function () {
+    if (audioContext.state === 'suspended') {
+        audioContext.resume();
+    }
+}, { once: true });
 
 function playClickSound() {
     if (audioContext.state === 'suspended') {
@@ -469,18 +475,7 @@ window.addEventListener('load', async () => {
 // Console Welcome
 // ========================================
 
-console.log(`
-%c╔══════════════════════════════════════════════════════════╗
-║                                                          ║
-║   🚀 O3 Origin — AI-Powered Learning Ecosystem          ║
-║                                                          ║
-║   Your personal AI teacher available 24×7               ║
-║                                                          ║
-║   Contact: +91 9366738658                               ║
-║   Email: 2003origin@gmail.com                           ║
-║                                                          ║
-╚══════════════════════════════════════════════════════════╝
-`, 'color: #00d4ff; font-family: monospace;');
+
 
 // Export for testing
 if (typeof module !== 'undefined' && module.exports) {
