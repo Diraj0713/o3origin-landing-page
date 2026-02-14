@@ -1,0 +1,22 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Only allow writes to the waitlist collection
+    match /origin_waitlist/{document} {
+      // Allow create only (no updates/deletes)
+      // Validate data structure to prevent garbage data
+      allow create: if request.resource.data.keys().hasAll(['name', 'email', 'phone', 'timestamp'])
+                    && request.resource.data.email is string
+                    && request.resource.data.name.size() > 0;
+      
+      // No public read access (Admin SDK only)
+      allow read: if false;
+      allow update, delete: if false;
+    }
+
+    // Deny access to all other collections by default
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
