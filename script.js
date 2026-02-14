@@ -8,12 +8,12 @@ import { getFirestore, collection, addDoc, serverTimestamp } from "firebase/fire
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAB-Bi4ITOc6NZ4Aw7Kutq_xUlNl7OtlU0",
-  authDomain: "origin-9f8bf.firebaseapp.com",
-  projectId: "origin-9f8bf",
-  storageBucket: "origin-9f8bf.firebasestorage.app",
-  messagingSenderId: "1078990885607",
-  appId: "1:1078990885607:web:09a6b0d314bb9279aec842"
+    apiKey: "AIzaSyAB-Bi4ITOc6NZ4Aw7Kutq_xUlNl7OtlU0",
+    authDomain: "origin-9f8bf.firebaseapp.com",
+    projectId: "origin-9f8bf",
+    storageBucket: "origin-9f8bf.firebasestorage.app",
+    messagingSenderId: "1078990885607",
+    appId: "1:1078990885607:web:09a6b0d314bb9279aec842"
 };
 
 // Initialize Firebase
@@ -47,19 +47,19 @@ function playHoverSound() {
     if (audioContext.state === 'suspended') {
         audioContext.resume();
     }
-    
+
     const oscillator = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
-    
+
     oscillator.connect(gainNode);
     gainNode.connect(audioContext.destination);
-    
+
     oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
     oscillator.frequency.exponentialRampToValueAtTime(1200, audioContext.currentTime + 0.05);
-    
+
     gainNode.gain.setValueAtTime(0.05, audioContext.currentTime);
     gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.05);
-    
+
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.05);
 }
@@ -68,19 +68,19 @@ function playClickSound() {
     if (audioContext.state === 'suspended') {
         audioContext.resume();
     }
-    
+
     const oscillator = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
-    
+
     oscillator.connect(gainNode);
     gainNode.connect(audioContext.destination);
-    
+
     oscillator.frequency.setValueAtTime(600, audioContext.currentTime);
     oscillator.frequency.exponentialRampToValueAtTime(300, audioContext.currentTime + 0.1);
-    
+
     gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
     gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-    
+
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.1);
 }
@@ -89,22 +89,22 @@ function playSuccessSound() {
     if (audioContext.state === 'suspended') {
         audioContext.resume();
     }
-    
+
     const notes = [523.25, 659.25, 783.99, 1046.50]; // C major chord
-    
+
     notes.forEach((freq, i) => {
         const oscillator = audioContext.createOscillator();
         const gainNode = audioContext.createGain();
-        
+
         oscillator.connect(gainNode);
         gainNode.connect(audioContext.destination);
-        
+
         oscillator.frequency.setValueAtTime(freq, audioContext.currentTime + i * 0.1);
-        
+
         gainNode.gain.setValueAtTime(0, audioContext.currentTime + i * 0.1);
         gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + i * 0.1 + 0.05);
         gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + i * 0.1 + 0.3);
-        
+
         oscillator.start(audioContext.currentTime + i * 0.1);
         oscillator.stop(audioContext.currentTime + i * 0.1 + 0.3);
     });
@@ -159,7 +159,7 @@ if (navLinks) {
 
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         playClickSound();
         const target = document.querySelector(this.getAttribute('href'));
@@ -213,52 +213,52 @@ document.querySelectorAll('.comparison-card, .feature-card').forEach(el => {
 
 function validateForm(data) {
     const errors = [];
-    
+
     if (!data.fullName || data.fullName.trim().length < 2) {
         errors.push({ field: 'fullName', message: 'Please enter your full name' });
     }
-    
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!data.email || !emailRegex.test(data.email)) {
         errors.push({ field: 'email', message: 'Please enter a valid email' });
     }
-    
+
     const phoneRegex = /^[\+]?[0-9\s\-\.]{10,15}$/;
     if (!data.phone || !phoneRegex.test(data.phone.replace(/\s/g, ''))) {
         errors.push({ field: 'phone', message: 'Please enter a valid phone number' });
     }
-    
+
     if (!data.class) {
         errors.push({ field: 'class', message: 'Please select your class' });
     }
-    
+
     if (!data.exam) {
         errors.push({ field: 'exam', message: 'Please select an exam' });
     }
-    
+
     if (!data.contactPreference) {
         errors.push({ field: 'contactPreference', message: 'Please select contact preference' });
     }
-    
+
     if (!data.expectation || data.expectation.trim().length < 10) {
         errors.push({ field: 'expectation', message: 'Please share your expectations (min 10 chars)' });
     }
-    
+
     if (!data.revolutionIdea || data.revolutionIdea.trim().length < 10) {
         errors.push({ field: 'revolutionIdea', message: 'Please share your ideas (min 10 chars)' });
     }
-    
+
     if (!data.price || data.price <= 0) {
         errors.push({ field: 'price', message: 'Please enter a valid amount' });
     }
-    
+
     return errors;
 }
 
 function showErrors(errors) {
     document.querySelectorAll('.error-message').forEach(el => el.remove());
     document.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
-    
+
     errors.forEach(error => {
         const field = document.getElementById(error.field);
         if (field) {
@@ -269,7 +269,7 @@ function showErrors(errors) {
             field.parentNode.appendChild(msg);
         }
     });
-    
+
     if (errors.length > 0) {
         document.getElementById(errors[0].field).scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
@@ -277,7 +277,7 @@ function showErrors(errors) {
 
 // Clear errors on input
 document.querySelectorAll('.waitlist-form input, .waitlist-form select, .waitlist-form textarea').forEach(field => {
-    field.addEventListener('input', function() {
+    field.addEventListener('input', function () {
         this.classList.remove('error');
         const msg = this.parentNode.querySelector('.error-message');
         if (msg) msg.remove();
@@ -304,7 +304,7 @@ async function storeData(data) {
         timestamp: new Date().toISOString(),
         source: 'o3origin.com'
     };
-    
+
     if (db) {
         try {
             const docRef = await addDoc(collection(db, "origin_waitlist"), {
@@ -318,7 +318,7 @@ async function storeData(data) {
             throw e;
         }
     }
-    
+
     // Fallback to localStorage if Firebase fails
     const submissions = JSON.parse(localStorage.getItem('origin_waitlist') || '[]');
     submissions.push(payload);
@@ -333,16 +333,16 @@ async function storeData(data) {
 
 function showSuccessMessage(userData) {
     if (!successMessage) return;
-    
+
     // Update success message with user's name
     const userName = userData.name.split(' ')[0]; // Get first name
     const successTitle = successMessage.querySelector('.success-title');
     const successText = successMessage.querySelector('.success-text');
-    
+
     if (successTitle) {
         successTitle.innerHTML = `🎉 Welcome to O3 Origin, ${userName}!`;
     }
-    
+
     if (successText) {
         successText.innerHTML = `
             <p>✅ <strong>You're officially on the waitlist!</strong></p>
@@ -359,7 +359,7 @@ function showSuccessMessage(userData) {
             <p>📞 Questions? Call us: <strong>+91 9366738658</strong></p>
         `;
     }
-    
+
     // Add WhatsApp sharing button
     const whatsappBtn = document.createElement('button');
     whatsappBtn.className = 'btn btn-secondary whatsapp-share';
@@ -369,33 +369,33 @@ function showSuccessMessage(userData) {
         </svg>
         Share with Friends
     `;
-    whatsappBtn.onclick = function() {
+    whatsappBtn.onclick = function () {
         const message = `🎯 I just joined the O3 Origin waitlist! \nJoin me for AI-powered learning: ${window.location.href}`;
         window.open(`https://wa.me/?text=${encodeURIComponent(message)}`, '_blank');
     };
-    
+
     // Add to success message
     const successActions = successMessage.querySelector('.success-actions');
     if (successActions) {
         successActions.innerHTML = '';
         successActions.appendChild(whatsappBtn);
     }
-    
+
     // Show success message
     waitlistForm.classList.add('hidden');
     successMessage.classList.remove('hidden');
     successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    
+
     // Play success sound
     playSuccessSound();
 }
 
 // Form submission
 if (waitlistForm) {
-    waitlistForm.addEventListener('submit', async function(e) {
+    waitlistForm.addEventListener('submit', async function (e) {
         e.preventDefault();
         playClickSound();
-        
+
         const data = {
             fullName: document.getElementById('fullName').value.trim(),
             email: document.getElementById('email').value.trim(),
@@ -407,15 +407,15 @@ if (waitlistForm) {
             revolutionIdea: document.getElementById('revolutionIdea').value.trim(),
             price: document.getElementById('price').value
         };
-        
+
         const errors = validateForm(data);
         if (errors.length > 0) {
             showErrors(errors);
             return;
         }
-        
+
         setLoading(true);
-        
+
         try {
             const result = await storeData(data);
             if (result.success) {
@@ -441,7 +441,7 @@ document.addEventListener('mousemove', (e) => {
     const orbs = document.querySelectorAll('.gradient-orb');
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
-    
+
     orbs.forEach((orb, index) => {
         const speed = (index + 1) * 10;
         const xOffset = (x - 0.5) * speed;
@@ -457,20 +457,7 @@ document.addEventListener('mousemove', (e) => {
 window.addEventListener('load', async () => {
     if (db) {
         try {
-            console.log("🔍 Testing Firestore connection...");
             // Just check if db is accessible
-            console.log("✅ Firestore is ready");
-            
-            // Show connection status in console
-            console.log(`
-%c🔥 FIREBASE STATUS
-📊 Project: origin-9f8bf
-✅ Database: Connected
-📁 Collection: origin_waitlist (will be auto-created)
-🔑 API Key: Valid
-🌐 Domain: origin-9f8bf.firebaseapp.com
-`, 'color: #00ff88; font-family: monospace;');
-            
         } catch (error) {
             console.error("❌ Firestore connection test failed:", error);
             console.log("⚠️ Check: Firestore Database → Rules tab → Set to 'test mode'");
